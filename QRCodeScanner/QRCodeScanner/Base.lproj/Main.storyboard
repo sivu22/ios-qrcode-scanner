@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h7u-sc-97l">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--QR Code Scanner-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfC-Ba-lHZ" userLabel="Capture View">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="8Jf-OS-Spp"/>
+                                    <constraint firstAttribute="width" constant="300" id="bCM-fh-aDR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="sfC-Ba-lHZ" secondAttribute="centerX" id="p3W-KZ-cfA"/>
+                            <constraint firstAttribute="centerY" secondItem="sfC-Ba-lHZ" secondAttribute="centerY" id="zu4-FY-ydp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Code Scanner" id="ZyY-ju-tTq"/>
+                    <connections>
+                        <outlet property="captureView" destination="sfC-Ba-lHZ" id="NN7-cw-7H9"/>
+                        <segue destination="J0O-h7-aiy" kind="show" identifier="ShowCode" id="75A-FQ-XMv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="353"/>
+        </scene>
+        <!--Result-->
+        <scene sceneID="3mh-Xw-IxZ">
+            <objects>
+                <viewController title="Result" id="J0O-h7-aiy" customClass="ResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sfI-D2-2K2"/>
+                        <viewControllerLayoutGuide type="bottom" id="d5c-ye-xb4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfs-D5-LBN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9E-Xh-4F9">
+                                <rect key="frame" x="16" y="90" width="568" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="w0j-W3-wpD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c9E-Xh-4F9" firstAttribute="trailing" secondItem="hfs-D5-LBN" secondAttribute="trailingMargin" id="EMj-ag-zMB"/>
+                            <constraint firstItem="c9E-Xh-4F9" firstAttribute="leading" secondItem="hfs-D5-LBN" secondAttribute="leadingMargin" id="tTM-NJ-cTc"/>
+                            <constraint firstItem="c9E-Xh-4F9" firstAttribute="top" secondItem="sfI-D2-2K2" secondAttribute="bottom" constant="26" id="w24-bc-3qd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scanned Code" id="GA9-ZM-WIr">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cMK-vu-jTj"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="codeLabel" destination="c9E-Xh-4F9" id="qem-Cz-7KO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5O-lH-q5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2963" y="354.99999999999994"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uak-MW-gtx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h7u-sc-97l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iiS-ue-Vai">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ADK-2E-309"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7i-4e-wKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="355" y="354.99999999999994"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="t8J-OJ-ueK">
+            <objects>
+                <navigationController storyboardIdentifier="ShowCodeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="QDf-NO-JfO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zUk-l0-vRL"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PLh-mX-Y3Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J0O-h7-aiy" kind="relationship" relationship="rootViewController" id="IVm-X3-y4n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ci-o4-2SO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2151" y="354.99999999999994"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IVm-X3-y4n"/>
+    </inferredMetricsTieBreakers>
+</document>
