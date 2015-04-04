@@ -50,10 +50,10 @@
     AVCaptureDevice *videoCaptureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     NSError *error = nil;
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoCaptureDevice error:&error];
-    if( videoInput ) [self.captureSession addInput:videoInput];
+    if(videoInput) [self.captureSession addInput:videoInput];
     else
     {
-        DLog( @"Error setting up the capture session : %@", error );
+        DLog(@"Error setting up the capture session : %@", error);
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Unexpected error while setting up the capture session." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
@@ -123,7 +123,7 @@
     
     if(rotation != 0.0f)
     {
-        DLog( @"Capture view correctly rotated" );
+        DLog(@"Capture view correctly rotated");
         self.captureView.transform = CGAffineTransformMakeRotation(rotation);
     }
 }
@@ -162,7 +162,7 @@
     
     [UIView animateWithDuration:duration animations:^(void)
      {
-         self.captureView.transform = CGAffineTransformMakeRotation( rotation );
+         self.captureView.transform = CGAffineTransformMakeRotation(rotation);
      }];
 }
 
